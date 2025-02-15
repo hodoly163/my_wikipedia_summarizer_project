@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikipedia Summarizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .search-box {
+            margin-bottom: 20px;
+        }
+        .search-box input {
+            width: 70%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+        .search-box button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .search-box button:hover {
+            background-color: #218838;
+        }
+        .result {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .result img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .result h3 {
+            color: #333;
+        }
+        .result p {
+            color: #555;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Wikipedia Summarizer</h1>
+    </header>
+    <div class="container">
+        <div class="search-box">
+            <form method="POST">
+                <input type="text" name="page_title" placeholder="Enter Wikipedia article title" required>
+                <button type="submit">Get Summary</button>
+            </form>
+        </div>
+
+        {% if summary %}
+        <div class="result">
+            <img src="{{ image }}" alt="Image related to the article">
+            <h3>Summary:</h3>
+            <p>{{ summary }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
